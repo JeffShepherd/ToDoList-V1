@@ -6,24 +6,34 @@ const app = express();
 //
 app.set("view engine", "ejs");
 
-app.get("/", function(req, res){
+app.use(bodyParser.urlencoded({extended: true}));
 
-var today = new Date();
-var currentDay = today.getDay();
-var day = "";
+app.get("/", function (req, res) {
 
+  var today = new Date();
 
+  var options = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long'
+  };
 
-if(currentDay === 6 || currentDay === 0) {
-  day = "Weekend";
-} else {
-  day = "Weekday";
-}
+  var day = today.toLocaleDateString('en-US', options);
 
-res.render("list", {kindOfDay: day});
-
+  res.render("list", {kindOfDay: day, newListItem:
+  });
 });
 
-app.listen(3000, function(){
+
+app.post("/", function (req, res) {
+
+  var newPost = req.body.newItem;
+
+  console.log(newPost);
+});
+
+
+
+app.listen(3000, function () {
   console.log("server started on port 3000");
 });

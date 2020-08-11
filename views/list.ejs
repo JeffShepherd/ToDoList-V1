@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
 
-    <title>To Do List</title>
+<head>
+  <meta charset="utf-8">
 
-  </head>
+  <title>To Do List</title>
 
-  <body>
-<h1>It's a <%= kindOfDay %> !</h1>
+</head>
 
+<body>
 
-  </body>
+  <form action="/" method="post">
+   
+    <input type="text" name="newItem">
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <h><%= kindOfDay %></h>
+
+  <ul>
+    <li>Buy Food</li>
+    <li>Cook Food</li>
+    <li>Eat</li>
+    <li><%= newListItem %></li>
+  </ul>
+
+</body>
+
 </html>
