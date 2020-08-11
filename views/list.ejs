@@ -6,25 +6,42 @@
 
   <title>To Do List</title>
 
+  <link rel="stylesheet" href="css/styles.css">
+
+
 </head>
 
 <body>
 
-  <form action="/" method="post">
-   
-    <input type="text" name="newItem">
-    <button type="submit">Submit</button>
+  <div class="box" id="heading">
 
-  </form>
+    <h1><%= kindOfDay %></h1>
 
-  <h><%= kindOfDay %></h>
+  </div>
 
-  <ul>
-    <li>Buy Food</li>
-    <li>Cook Food</li>
-    <li>Eat</li>
-    <li><%= newListItem %></li>
-  </ul>
+
+  <div class="box">
+
+    <% for (var i=0; i<newListItems.length; i++) { %>
+
+    <div class="item">
+      <input type="checkbox">
+      <p><%= newListItems[i] %></p>
+
+    </div>
+
+    <% } %>
+
+
+    <form class="item" action="/" method="post">
+
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+      <button type="submit" name="button">+</button>
+
+    </form>
+  </div>
+
+
 
 </body>
 
